@@ -1,17 +1,6 @@
 ---
 name: corpus-tools-skill
-description: |
-  Set up and operate a local corpus-linguistics toolchain on macOS Apple Silicon — Python (NLTK, spaCy, Stanza), IMS Open Corpus Workbench (CWB, cwb-encode, cqp), OPUS for parallel corpora, plus helpers for building, annotating, and querying corpora from text, PDFs, HTML, or DOCX.
-
-  TRIGGERS: Use when the user asks to:
-  - Set up NLTK / spaCy / Stanza, or download model data
-  - Install or use IMS Open Corpus Workbench (CWB / CQP / cwb-encode)
-  - Build a local corpus from a directory of texts, PDFs, HTML, or DOCX
-  - Tokenize, POS-tag, lemmatize, or parse a corpus locally
-  - Run concordances, collocations, frequencies, or keyword stats over local data
-  - Work with parallel corpora outside Sketch Engine — OPUS, OpusTools, InterText, or recreate ParaConc-style workflows from the CLI
-
-  DO NOT trigger for Sketch Engine MCP setup (see sketchengine-skill) or single-file fuzzy-search tasks.
+description: "Run local corpus-linguistics tooling."
 ---
 
 # Corpus Tools Skill
