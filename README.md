@@ -1,8 +1,10 @@
 # corpus-tools-skill
 
+**Draft, untested — testers welcome.**
+
 A Claude Code / Claude Desktop skill that sets up and operates a local corpus-linguistics toolchain on macOS Apple Silicon — Python (NLTK, spaCy, Stanza), the IMS Open Corpus Workbench (CWB / `cwb-encode` / `cqp`), OPUS for parallel corpora, and helpers for building, annotating, and querying corpora compiled from raw text files, PDFs, HTML, or DOCX.
 
-## ⚠️ Status: DRAFT — UNTESTED — testers wanted
+## Status
 
 This skill is a first draft generated from research on the state of agent / MCP tooling for linguistic research. **It has not been end-to-end tested yet.** Specifically:
 
@@ -14,7 +16,7 @@ This skill is a first draft generated from research on the state of agent / MCP 
 
 **If you want to help test, please:**
 
-1. Try `scripts/setup-python-env.sh /tmp/corpus-test` on your platform and report what fails.
+1. Try `scripts/setup-python-env.sh ./corpus-test` on your platform and report what fails.
 2. Try `scripts/setup-cwb.sh` and report whether `brew install cwb` works directly or needs a tap.
 3. Try the full corpus-build pipeline (`extract-text.py` → `annotate.py` → `build-cwb-corpus.sh`) on a small directory of test files.
 4. Open issues for anything that surprises you — wrong package names, missing dependencies, broken Homebrew formulas, encoding issues, performance gotchas.
@@ -33,19 +35,20 @@ It covers two layers:
 
 It also provides a CLI replacement for [ParaConc](http://paraconc.com/)'s parallel-concordancing workflow, since no MCP server for parallel corpora exists at the time of writing.
 
-## Install (as a Claude skill)
+## Requirements
 
-The intended layout is `~/gitrepos/02_workskills/corpus-tools-skill/` or any folder Claude Code's skill discovery picks up. Cloning into a custom workspace:
+- macOS on Apple Silicon (the scripts assume Homebrew; Linux is untested).
+- Python 3.10+ and [`uv`](https://docs.astral.sh/uv/).
+- Homebrew, for the IMS Open Corpus Workbench.
+- No accounts, API keys or paid services. Allow a few GB of disk for spaCy/Stanza models and corpora; transformer models want 8 GB or more of RAM.
+
+## Install
 
 ```bash
-git clone https://github.com/techczech/corpus-tools-skill.git ~/gitrepos/02_workskills/corpus-tools-skill
+git clone https://github.com/techczech/corpus-tools-skill ~/.claude/skills/corpus-tools-skill
 ```
 
-The skill self-registers when Claude Code's skill discovery scans that folder. To package as a `.skill` archive for distribution:
-
-```bash
-python3 ~/.claude/skills/skill-creator/scripts/package_skill.py ~/gitrepos/02_workskills/corpus-tools-skill
-```
+For Codex, clone into `~/.codex/skills/corpus-tools-skill` instead. Then run `scripts/setup-python-env.sh` and `scripts/setup-cwb.sh` as needed.
 
 ## Layout
 
@@ -68,7 +71,7 @@ references/
 
 ## Background
 
-Generated from a primary-source research report on the 2025–2026 state of agent / MCP tooling for linguistic research, archived in [techczech/_LEARNINGLOG](https://github.com/techczech/_LEARNINGLOG/tree/main/linguistics/agent-tools-for-linguists). That report identifies the lack of an MCP wrapper for parallel corpora and for general NLTK / Python NLP work, and recommends the code-generation pattern (Klemen et al. 2025) over a custom NLTK MCP — which is what this skill operationalises.
+The skill follows the code-generation pattern (Klemen et al. 2025) rather than a custom NLTK MCP server, because no MCP wrapper exists for parallel corpora or general NLTK / Python NLP work.
 
 Sister skill: [`sketchengine-skill`](https://github.com/techczech/sketchengine-skill) — for cloud-hosted Sketch Engine corpora via the `ricCap/sketch-engine-mcp-server` MCP.
 

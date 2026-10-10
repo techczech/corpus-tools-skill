@@ -165,4 +165,4 @@ This is the 20-line ParaConc replacement. For anything beyond this, encode with 
 
 ## Why no MCP server (yet)
 
-The Learning Log entry at `linguistics/agent-tools-for-linguists/` documents this gap. CWB has had parallel-corpus support since the early 2000s; the Yu et al. (2026) three-tool MCP architecture (`corpus_info`, `cqp_query`, `cqp_frequency`) is in principle extendable to it. As of April 2026, no public MCP server has been built for this case. A motivated user could write one — it would be a half-day project given the existing CWB infrastructure.
+CWB has had parallel-corpus support since the early 2000s; the Yu et al. (2026) three-tool MCP architecture (`corpus_info`, `cqp_query`, `cqp_frequency`) is in principle extendable to it. As of April 2026, no public MCP server has been built for this case. A motivated user could write one — it would be a half-day project given the existing CWB infrastructure.

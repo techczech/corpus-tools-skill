@@ -1,6 +1,6 @@
 ---
 name: corpus-tools-skill
-description: "Run local corpus-linguistics tooling."
+description: "Set up and run a local corpus-linguistics toolchain (NLTK, spaCy, Stanza, IMS Corpus Workbench) on macOS: build corpora from PDF, HTML or DOCX, annotate, run concordances and keyword analysis, and handle parallel corpora. Use for local corpora, not Sketch Engine."
 ---
 
 # Corpus Tools Skill
@@ -82,13 +82,13 @@ For finer-grained annotation (dependency parses, NER, custom pipelines), use spa
 
 ## Frequency, keyword, collocation analysis
 
-The Python scripts handle these for small to medium corpora:
+The bundled `scripts/concordance.py` gives KWIC lines for small to medium corpora:
 
 ```bash
-python scripts/frequency.py --dir /path/to/texts --pos NOUN --top 100
-python scripts/keywords.py --target /path/to/target --reference /path/to/reference --measure log-likelihood --top 50
-python scripts/collocations.py --dir /path/to/texts --node "research" --window 5 --measure logdice --top 30
+python scripts/concordance.py --dir /path/to/texts --query "research" --window 7 --max 50
 ```
+
+There are no bundled scripts for frequency lists, keywords or collocations. Write them from the recipes in [`references/nltk-recipes.md`](references/nltk-recipes.md) (frequency, collocations) and [`references/spacy-recipes.md`](references/spacy-recipes.md) (POS-filtered frequency, log-likelihood keywords).
 
 For larger corpora (>10M tokens), use CWB — it handles indexed access far better than re-scanning text files.
 
@@ -116,4 +116,4 @@ See [`references/parallel-corpora.md`](references/parallel-corpora.md) for the f
 
 - Cloud corpus services (Sketch Engine specifically) — see sketchengine-skill
 - Treebank-specific tooling (Universal Dependencies querying) — `udapi` is mentioned in `references/spacy-recipes.md` but full UD workflows would be a separate skill
-- LLM-mediated corpus inquiry — that's a research-methodology question, not a tooling question. See `_LEARNINGLOG/linguistics/agent-tools-for-linguists/`
+- LLM-mediated corpus inquiry — that's a research-methodology question, not a tooling question.

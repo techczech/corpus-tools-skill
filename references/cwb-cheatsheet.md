@@ -161,4 +161,4 @@ For full parallel-corpus workflow including OPUS data, see `parallel-corpora.md`
 
 - CQP manual: https://cwb.sourceforge.io/files/CQP_Manual/
 - CWB encoding tutorial: https://cwb.sourceforge.io/documentation.php
-- Yu et al. (2026) — agent-driven CQP via MCP: https://arxiv.org/abs/2604.07189 (and the dossier in `_LEARNINGLOG/linguistics/agent-tools-for-linguists/`)
+- Yu et al. (2026) — agent-driven CQP via MCP: https://arxiv.org/abs/2604.07189

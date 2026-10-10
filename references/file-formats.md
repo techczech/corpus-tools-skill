@@ -21,7 +21,7 @@ Three quality tiers, in increasing cost:
    - Slow (minutes per PDF) but produces searchable PDFs that pdfminer.six / pdftotext can then handle
    - For Czech, German, etc., specify language: `ocrmypdf -l ces input.pdf output.pdf`
 
-For **academic-quality PDF→markdown** (preserving headings, tables, math), see the user's `academic-pdf-to-mkd` skill in this same workskills folder. That's purpose-built and worth using when output quality matters more than throughput.
+For **academic-quality PDF→markdown** (preserving headings, tables, math), use a dedicated PDF-to-markdown tool such as `marker` or `docling`; they are worth the extra time when output quality matters more than throughput.
 
 ## HTML / web pages
 
@@ -113,7 +113,7 @@ Stanza outputs CoNLL-U directly; spaCy via `spacy_conll`. UD treebanks for ~150 
 
 For transcription-derived corpora (oral history, interviews, broadcast news), the user's `speech-to-text` skill is the right tool — local MLX-based ASR with optional speaker diarization, producing time-coded text that can feed into the rest of this pipeline.
 
-Per the Learning Log epistemic rules: ASR-generated transcripts have low reliability for proper nouns. Always verify named entities externally before treating them as corpus evidence.
+ASR-generated transcripts have low reliability for proper nouns. Always verify named entities externally before treating them as corpus evidence.
 
 ## Format-conversion quick-reference
 
