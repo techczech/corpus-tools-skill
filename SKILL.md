@@ -1,6 +1,6 @@
 ---
 name: corpus-tools-skill
-description: "Set up and run a local corpus-linguistics toolchain (NLTK, spaCy, Stanza, IMS Corpus Workbench) on macOS: build corpora from PDF, HTML or DOCX, annotate, run concordances and keyword analysis, and handle parallel corpora. Use for local corpora, not Sketch Engine."
+description: "Use to set up and run a local corpus toolchain (NLTK, spaCy, Stanza, CWB) on macOS: build corpora from PDF/HTML/DOCX, concordances, keywords. Not Sketch Engine."
 ---
 
 # Corpus Tools Skill
